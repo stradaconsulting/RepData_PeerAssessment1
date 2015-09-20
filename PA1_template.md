@@ -1,6 +1,11 @@
-# Reproducible Research: Peer Assessment 1
-Santiago Oleas  
-September 17, 2015  
+---
+title: 'Reproducible Research: Peer Assessment 1'
+author: "Santiago Oleas"
+date: "September 17, 2015"
+output:
+  html_document:
+    keep_md: yes
+---
 ## Introduction
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
 
@@ -118,6 +123,14 @@ Using the summarized **_dailyMovementData_** a histogram will be produced to sho
 
 ```r
 library(ggplot2)
+```
+
+```
+## Find out what's changed in ggplot2 with
+## news(Version == "1.0.1", package = "ggplot2")
+```
+
+```r
 qplot(dailyMovementData$steps, geom = "histogram",
                                main = "Total Steps Taken Each Day",
                                xlab = "Steps",
@@ -125,7 +138,7 @@ qplot(dailyMovementData$steps, geom = "histogram",
                                binwidth = 1000)
 ```
 
-![](PA1_template_files/figure-html/totalStepsHistogram-1.png) 
+![plot of chunk totalStepsHistogram](figure/totalStepsHistogram-1.png) 
 
 #### For this part of the assignment, you can ignore the missing values in the dataset.  
 #### 2. Calculate and report the **mean** and **median* total number of steps taken per day.
@@ -173,7 +186,7 @@ g <- ggplot(intervalMovementData, aes(x=interval, y=steps))
 g + geom_line() + xlab("5-Minute Interval") + ylab("Average Steps") + ggtitle("Average Steps by 5-Minute Interval - Weekend vs Weekday")
 ```
 
-![](PA1_template_files/figure-html/createTimeSeriesInterval-1.png) 
+![plot of chunk createTimeSeriesInterval](figure/createTimeSeriesInterval-1.png) 
 
 #### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -264,7 +277,7 @@ qplot(transformedDailyMovementData$steps, geom = "histogram",
                                binwidth = 1000)
 ```
 
-![](PA1_template_files/figure-html/transformedTotalStepsHistogram-1.png) 
+![plot of chunk transformedTotalStepsHistogram](figure/transformedTotalStepsHistogram-1.png) 
 
 
 
@@ -339,6 +352,6 @@ g <- ggplot(transformedIntervalMovementData, aes(x=interval, y=steps))
 g + geom_line() + facet_grid(dayType ~ .) + xlab("5-Minute Interval") + ylab("Average Steps") + ggtitle("Average Steps by 5-Minute Interval - Weekend vs Weekday")
 ```
 
-![](PA1_template_files/figure-html/plotWeekendWeekdayAverageSteps-1.png) 
+![plot of chunk plotWeekendWeekdayAverageSteps](figure/plotWeekendWeekdayAverageSteps-1.png) 
 
 This concludes the assignment.
